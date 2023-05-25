@@ -17,10 +17,12 @@ List of used technologies
     
 
 Installation guide (if any libraries need to be installed)
-    To be continued
+    
+    "Install_Libraries.py" will install required libraries (if needed)
 
 User guide (how to run the program)
-    To be continued
+    If you have done the above you are now ready to run "Application.py"
+    - Otherwise install following packages manually: Matplotlib, Numpy, Pandas, 
 
 Status (What has been done (and if anything: what was not done))
     To be continued..
