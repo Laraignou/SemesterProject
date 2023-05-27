@@ -18,6 +18,9 @@ def Download_and_Install_Libraries():
     subprocess.check_call([sys.executable, '-m', 'pip', 'install',
     'console-menu'])
 
+    # subprocess.check_call([sys.executable, '-m', 'pip', 'install',
+    # ''])
+
     # process output with an API in the subprocess module:c
     reqs = subprocess.check_output([sys.executable, '-m', 'pip',
     'freeze'])
@@ -29,25 +32,6 @@ def Download_and_Install_Libraries():
     time.sleep(1)
     print('File(s) executed succesfully')
     
-
-Download_and_Install_Libraries()
 # print(sys.path)
 
 
-import main
-
-time.sleep(3)
-os.system('cls')
-print('Opening application...')
-time.sleep(3)
-
-main.mainInit()
-
-# def run(runfile):
-#   with open(runfile,"r") as rnf:
-#     exec((rnf.read()))
-# # run('Project/main.py')
-
-
-# with open("Project/main.py") as f:
-#     exec(f.read())

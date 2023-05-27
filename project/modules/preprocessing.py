@@ -6,18 +6,18 @@ import zipfile
 
 def Unzip_Dataset():
         
-        with zipfile.ZipFile('Project/Resources/Dataset/Dataset_Collection.zip', 'r') as zip_ref:
-                zip_ref.extractall('Project/Resources/Dataset/')
+        with zipfile.ZipFile('Project/Resources/Data/Dataset_Collection.zip', 'r') as zip_ref:
+                zip_ref.extractall('Project/Resources/Data')
 
 Unzip_Dataset()
 
 def Data_Cleaning():
 
-    df = pd.read_csv('Project/Resources/Dataset/Dataset_Collection/movies_metadata.csv', low_memory=False)
+    df = pd.read_csv('Project/Resources/Data/Dataset_Collection/movies_metadata.csv', low_memory=False)
     # print(df.isnull())
     # print(df.isnull().sum())
     # print(df.shape)
-    # df.info()
+    df.info()
     # print(df.head(10))
     
     duplicated_data = df[df.duplicated()]
@@ -47,7 +47,7 @@ def Data_Cleaning():
     # print(df["adult"].value_counts())
     df.drop(["adult"], inplace=True, axis=1)
     
-    # df.info()
+    df.info()
 
     df["status"].fillna(df["status"].value_counts().idxmax(), inplace=True)
     df["runtime"] = df["runtime"].replace(0, np.nan)

@@ -2,10 +2,51 @@
 from consolemenu import *
 from consolemenu.items import *
 from modules import movies
+import urllib.request
+from urllib.request import urlopen
+from tqdm import tqdm
+import time
+import os
+from setup import *
 
+Download_and_Install_Libraries()
+
+# def download_dataset():
+
+#     url = "https://www.dropbox.com/s/s5yarta1lk6afz3/Dataset_Collection.zip?dl=1"
+#     save_as = "project/resources/data/Dataset.zip"
+
+#     # Download from URL
+#     with urlopen(url) as file:
+#         content = file.read()#.decode()
+
+#     # Save to file
+#     with open(save_as, 'wb') as download:
+#         download.write(content)
+
+class DownloadProgressBar(tqdm):
+    def update_to(self, b=1, bsize=1, tsize=None):
+        if tsize is not None:
+            self.total = tsize
+        self.update(b * bsize - self.n)
+
+def download_url(url, save_as):
+    print('Downloading dataset...')
+    time.sleep(1)
+
+    with DownloadProgressBar(unit='B', unit_scale=True,
+                             miniters=1, desc=url.split('/')[-1]) as t:
+        urllib.request.urlretrieve(url, save_as, reporthook=t.update_to)
+
+# full path doesnt work for CMD therefore "../../../"
+download_url(url="https://www.dropbox.com/s/s5yarta1lk6afz3/Dataset_Collection.zip?dl=1", save_as ="../../../Dataset.zip")
+
+time.sleep(3)
+os.system('cls')
+print('Opening application...')
+time.sleep(3)
 
 def mainInit():
-
 
     # Create the menu
     menu = ConsoleMenu("Movie Recommendation System - Statictics and visualization", "By Carlo & Frederik", clear_screen=False)
@@ -42,3 +83,7 @@ def mainInit():
 
     # Finally, we call show to show the menu and allow the user to interact
     menu.show()
+
+mainInit()
+
+    
