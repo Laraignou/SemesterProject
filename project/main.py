@@ -7,8 +7,11 @@ from urllib.request import urlopen
 from tqdm import tqdm
 import time
 import os
+from modules.database import create_recommender_database
 from setup import *
+from modules.singleton import singleton_init
 
+singleton_init()
 Download_and_Install_Libraries()
 
 # def download_dataset():
@@ -41,11 +44,16 @@ def download_url(url, save_as):
 # full path doesnt work for CMD therefore "../../../"
 download_url(url="https://www.dropbox.com/s/s5yarta1lk6afz3/Dataset_Collection.zip?dl=1", save_as ="../../../Dataset.zip")
 
-time.sleep(3)
+time.sleep(1)
 os.system('cls')
 print('Opening application...')
-time.sleep(3)
+time.sleep(1)
 
+def initialize_database():
+    create_recommender_database('project/resources/data/Dataset_Collection/recommender.csv',
+'D:/GitHub/SemesterProject/project/resources/database/recommender.db', 'movies')
+    print("Created recommender database.")
+    
 def mainInit():
 
     # Create the menu
@@ -66,7 +74,7 @@ def mainInit():
     # A SelectionMenu constructs a menu from a list of strings
     selection_menu_movies = SelectionMenu('', clear_screen=False)
     submenu_item_movies = SubmenuItem("Movies", selection_menu_movies, menu)
-    function_item_movies_search = FunctionItem('Search', movies.Search)
+    function_item_movies_search = FunctionItem('Recommend Movies Based On Title', movies.Search)
     function_item_movies_show_top10_global = FunctionItem('TOP 10 - Global', movies.Show_Top10_Global_By_Title)
     function_item_movies_show_top10_global = FunctionItem('TOP 10 - Global', movies.Show_Top10_Global_By_Genre)
 
@@ -84,6 +92,7 @@ def mainInit():
     # Finally, we call show to show the menu and allow the user to interact
     menu.show()
 
+initialize_database()
 mainInit()
 
     

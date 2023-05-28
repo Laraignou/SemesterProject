@@ -1,5 +1,4 @@
 import pandas as pd
-import singleton
 
 # Import linear_kernel
 from sklearn.metrics.pairwise import linear_kernel
@@ -49,4 +48,4 @@ def get_recommendations_by_title(title, database_connection, tableName):
     # # Return the top 10 most similar movies
     return df['title'].iloc[movie_indices]
 
-print(get_recommendations_by_title("Avatar", singleton.recommender_connection, 'movies'))
+#print(get_recommendations_by_title("Avatar", singleton.recommender_connection, 'movies'))
