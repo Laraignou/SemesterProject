@@ -51,7 +51,7 @@ time.sleep(1)
 
 def initialize_database():
     create_recommender_database('project/resources/data/Dataset_Collection/recommender.csv',
-'D:/GitHub/SemesterProject/project/resources/database/recommender.db', 'movies')
+'project/resources/database/recommender.db', 'movies')
     print("Created recommender database.")
     
 def mainInit():
