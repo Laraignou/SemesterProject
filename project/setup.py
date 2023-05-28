@@ -16,6 +16,9 @@ def Download_and_Install_Libraries():
     'pandas'])
     
     subprocess.check_call([sys.executable, '-m', 'pip', 'install',
+    'tqdm'])
+    
+    subprocess.check_call([sys.executable, '-m', 'pip', 'install',
     'console-menu'])
 
     # subprocess.check_call([sys.executable, '-m', 'pip', 'install',
