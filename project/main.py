@@ -7,11 +7,11 @@ from urllib.request import urlopen
 from tqdm import tqdm
 import time
 import os
-from modules.database import create_recommender_database
+# from modules.database import create_recommender_database
 from setup import *
-from modules.singleton import singleton_init
+# from modules.singleton import singleton_init
 
-singleton_init()
+# singleton_init()
 Download_and_Install_Libraries()
 
 # def download_dataset():
@@ -41,13 +41,18 @@ def download_url(url, save_as):
                              miniters=1, desc=url.split('/')[-1]) as t:
         urllib.request.urlretrieve(url, save_as, reporthook=t.update_to)
 
-# full path doesnt work for CMD therefore "../../../"
-download_url(url="https://www.dropbox.com/s/s5yarta1lk6afz3/Dataset_Collection.zip?dl=1", save_as ="../../../Dataset.zip")
+"""WORKS WITH CMD ATM AND NOT VS.CODE (CAUSE DIFFERENT PATHS)"""
+download_url(url="https://www.dropbox.com/s/s5yarta1lk6afz3/Dataset_Collection.zip?dl=1", save_as ="resources/data/Dataset.zip")
 
-time.sleep(1)
-os.system('cls')
-print('Opening application...')
-time.sleep(1)
+
+"""WORKS WITH VS.CODE AND NOT CMD (CAUSE DIFFERENT PATHS)"""
+# download_url(url="https://www.dropbox.com/s/s5yarta1lk6afz3/Dataset_Collection.zip?dl=1", save_as ="project/resources/data/Dataset.zip")
+
+
+# time.sleep(1)
+# os.system('cls')
+# print('Opening application...')
+# time.sleep(1)
 
 def initialize_database():
     create_recommender_database('project/resources/data/Dataset_Collection/recommender.csv',
@@ -92,7 +97,7 @@ def mainInit():
     # Finally, we call show to show the menu and allow the user to interact
     menu.show()
 
-initialize_database()
+# initialize_database()
 mainInit()
 
     

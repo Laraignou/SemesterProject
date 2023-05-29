@@ -6,7 +6,7 @@ from sklearn.metrics.pairwise import linear_kernel
 #Import TfIdfVectorizer from scikit-learn
 from sklearn.feature_extraction.text import TfidfVectorizer
 
-#df = pd.read_csv('project/resources/data/Dataset_Collection/recommender.csv', low_memory=False) 
+df = pd.read_csv('project/resources/data/Dataset_Collection/recommender.csv', low_memory=False) 
 
 # Function that takes in movie title as input and outputs most similar movies
 def get_recommendations_by_title(title, database_connection, tableName):

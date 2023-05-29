@@ -21,6 +21,9 @@ def Download_and_Install_Libraries():
     subprocess.check_call([sys.executable, '-m', 'pip', 'install',
     'console-menu'])
 
+    subprocess.check_call([sys.executable, '-m', 'pip', 'install',
+    'scikit-learn'])
+
     # subprocess.check_call([sys.executable, '-m', 'pip', 'install',
     # ''])
 

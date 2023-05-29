@@ -1,5 +1,7 @@
-from modules.recommender import get_recommendations_by_title
-from modules.singleton import get_database_connection
+# from modules.recommender import get_recommendations_by_title
+# from modules.singleton import get_database_connection
+from recommender import *
+from singleton import *
 
 def Search():
     print('Enter movie title: ')
