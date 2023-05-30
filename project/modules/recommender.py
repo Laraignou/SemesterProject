@@ -1,16 +1,19 @@
 import pandas as pd
 
+
 # Import linear_kernel
 from sklearn.metrics.pairwise import linear_kernel
 
 #Import TfIdfVectorizer from scikit-learn
 from sklearn.feature_extraction.text import TfidfVectorizer
 
-df = pd.read_csv('project/resources/data/Dataset_Collection/recommender.csv', low_memory=False) 
+
 
 # Function that takes in movie title as input and outputs most similar movies
 def get_recommendations_by_title(title, database_connection, tableName):
     
+    df = pd.read_csv('project/resources/data/Dataset_Collection/recommender.csv', low_memory=False)
+    # df = pd.read_csv('resources/data/Dataset_Collection/recommender.csv', low_memory=False) 
     df = pd.read_sql_query("SELECT * FROM " + tableName, database_connection)
     
     #Define a TF-IDF Vectorizer Object. Remove all english stop words such as 'the', 'a'
@@ -48,4 +51,4 @@ def get_recommendations_by_title(title, database_connection, tableName):
     # # Return the top 10 most similar movies
     return df['title'].iloc[movie_indices]
 
-#print(get_recommendations_by_title("Avatar", singleton.recommender_connection, 'movies'))
+# print(get_recommendations_by_title("Avatar", singleton.recommender_connection, 'movies'))

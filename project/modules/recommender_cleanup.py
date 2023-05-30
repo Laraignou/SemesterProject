@@ -16,4 +16,4 @@ def cleanUpDataset(dataset, output):
     df.to_csv(output)
     #print(df.info())
 
-cleanUpDataset('project/resources/data/Dataset_Collection/movies_metadata.csv', 'project/resources/data/Dataset_Collection/recommender.csv')
+# cleanUpDataset('project/resources/data/Dataset_Collection/movies_metadata.csv', 'project/resources/data/Dataset_Collection/recommender.csv')
