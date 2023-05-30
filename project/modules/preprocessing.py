@@ -6,15 +6,18 @@ import time
 
 def Data_Cleaning():
 
-    # df = pd.read_csv('Project/Resources/Data/Dataset_Collection/movies_metadata.csv', low_memory=False)
+    df = pd.read_csv('Project/Resources/Data/Dataset_Collection/movies_metadata.csv', low_memory=False)
+    # df = pd.read_csv('Resources/Data/Dataset_Collection/movies_metadata.csv', low_memory=False)
     
-    df = pd.read_csv('Resources/Data/Dataset_Collection/movies_metadata.csv', low_memory=False)
     # print(df.isnull())
     # print(df.isnull().sum())
-    # print(df.shape)
-    print('"raw dataset"')
+    
+    
+    print('ROWS AND COLUMNS', df.shape)
     df.info()
-    # input("press enter to continue..")
+    print('')
+    print('')
+    input("press ENTER to show info about DATA after cleaning process..")
     # print(df.head(10))
     
     duplicated_data = df[df.duplicated()]
@@ -46,6 +49,9 @@ def Data_Cleaning():
     df.drop(["adult"], inplace=True, axis=1)
     
     df.info()
+    print('')
+    input('press ENTER to continue..')
+    print('Creating plots..')
 
     df["status"].fillna(df["status"].value_counts().idxmax(), inplace=True)
     df["runtime"] = df["runtime"].replace(0, np.nan)
@@ -147,13 +153,14 @@ def Data_Cleaning():
     genres_occur = list_counter(df["genres"].values, log=False)
     genres = pd.DataFrame.from_records(genres_occur, columns=["genres", "count"])
     genres.plot(kind = 'bar', x="genres", title='Genre')
-    # plt.savefig('Project/Resources/Figures/plot_figure_1.png')
-    plt.savefig('Resources/Figures/plot_figure_1.png')
+    plt.savefig('Project/Resources/Figures/plot_by_genre.png')
+    # plt.savefig('Resources/Figures/plot_figure_1.png')
 
     countries_occur = list_counter(df["production_countries"].values, log=False)
     countries = pd.DataFrame.from_records(countries_occur, columns=["countries", "count"])
     countries.head(20).plot(kind = 'bar', x="countries", title='Countries')
-    plt.savefig('Resources/Figures/plot_figure_2.png')
+    plt.savefig('project/Resources/Figures/plot_by_country.png')
+    # plt.savefig('Resources/Figures/plot_figure_2.png')'
     
 # Data_Cleaning()
 

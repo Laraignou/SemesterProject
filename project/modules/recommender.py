@@ -1,13 +1,6 @@
 import pandas as pd
-
-
-# Import linear_kernel
 from sklearn.metrics.pairwise import linear_kernel
-
-#Import TfIdfVectorizer from scikit-learn
 from sklearn.feature_extraction.text import TfidfVectorizer
-
-
 
 # Function that takes in movie title as input and outputs most similar movies
 def get_recommendations_by_title(title, database_connection, tableName):

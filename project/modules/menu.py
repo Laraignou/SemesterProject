@@ -1,6 +1,7 @@
 from consolemenu import *
 from consolemenu.items import *
 import modules.movies
+import modules.visualization
 
 def MenuInit():
 
@@ -20,22 +21,24 @@ def MenuInit():
     # command_item = CommandItem("Run a console command",  "touch hello.txt")
 
     # A SelectionMenu constructs a menu from a list of strings
-    selection_menu_movies = SelectionMenu('', clear_screen=False)
-    submenu_item_movies = SubmenuItem("Movies", selection_menu_movies, menu)
-    function_item_movies_search = FunctionItem('Recommend Movies Based On Title', modules.movies.Search)
-    function_item_movies_show_top10_global = FunctionItem('TOP 10 - Global', modules.movies.Show_Top10_Global_By_Title)
-    function_item_movies_show_top10_global = FunctionItem('TOP 10 - Global', modules.movies.Show_Top10_Global_By_Genre)
+    menu_movies = SelectionMenu('')
+    submenu_movies = SubmenuItem("Movies", menu_movies, menu)
+    func_movies_search = FunctionItem('Recommend Movies Based On Title', modules.movies.Search)
 
-    selection_menu_stats_and_visuals = SelectionMenu(["Statictics", "Visualize"])
-    submenu_item_Stats_and_Visual = SubmenuItem("Data analysis", selection_menu_stats_and_visuals, menu)
-
+    menu_data = SelectionMenu('')
+    submenu_data = SubmenuItem("Data analysis", menu_data, menu)
+    func_data_plot_by_genre = FunctionItem('Plot by genre', modules.visualization.plot_by_genre)
+    
+    func_data_plot_by_country = FunctionItem('Plot by country', modules.visualization.plot_by_country)
 
     # Once we're done creating them, we just add the items to the menu
-    selection_menu_movies.append_item(function_item_movies_search)
-    selection_menu_movies.append_item(function_item_movies_show_top10_global)
+    menu_movies.append_item(func_movies_search)
+    menu_data.append_item(func_data_plot_by_genre)
+    menu_data.append_item(func_data_plot_by_country)
     # menu.append_item(command_item)
-    menu.append_item(submenu_item_movies)
-    menu.append_item(submenu_item_Stats_and_Visual)
+    menu.append_item(submenu_movies)
+    menu.append_item(submenu_data)
 
     # Finally, we call show to show the menu and allow the user to interact
     menu.show()
+

@@ -5,12 +5,13 @@ import time
 
 def Download_and_Install_Libraries():
 
+    print('Downloading packages if needed..')
     # implement pip as a subprocess:
     subprocess.check_call([sys.executable, '-m', 'pip', 'install',
     'numpy'])
     
-    subprocess.check_call([sys.executable, '-m', 'pip', 'install',
-    'seaborn'])
+    # subprocess.check_call([sys.executable, '-m', 'pip', 'install',
+    # 'seaborn'])
 
     subprocess.check_call([sys.executable, '-m', 'pip', 'install',
     'pandas'])
@@ -33,7 +34,6 @@ def Download_and_Install_Libraries():
     installed_packages = [r.decode().split('==')[0] for r in reqs.split()]
 
     print(installed_packages)
-    time.sleep(1)
     os.system('cls')
     time.sleep(1)
     print('File(s) executed succesfully')

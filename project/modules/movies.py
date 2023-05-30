@@ -1,8 +1,5 @@
 from modules.recommender import get_recommendations_by_title
 from modules.singleton import get_database_connection
-# from recommender import *
-# from recommender import get_recommendations_by_title
-# from singleton import *
 
 def Search():
     print('Enter movie title: ')
@@ -10,7 +7,6 @@ def Search():
     print("Loading movies...")
     print(get_recommendations_by_title(text, get_database_connection(), "movies"))
     
-
 def Show_Top10_Global_By_Title():
     print('test')
     

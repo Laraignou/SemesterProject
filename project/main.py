@@ -12,24 +12,26 @@ from modules.menu import *
 
 
 Download_and_Install_Libraries()
-# download_url(url="https://www.dropbox.com/s/s5yarta1lk6afz3/Dataset_Collection.zip?dl=1", save_as ="project/resources/data/Dataset.zip")
-download_url(url="https://www.dropbox.com/s/s5yarta1lk6afz3/Dataset_Collection.zip?dl=1", save_as ="resources/data/Dataset.zip")
+# input('First time running this application?')
+
+download_url(url="https://www.dropbox.com/s/s5yarta1lk6afz3/Dataset_Collection.zip?dl=1", save_as ="project/resources/data/Dataset.zip")
+# download_url(url="https://www.dropbox.com/s/s5yarta1lk6afz3/Dataset_Collection.zip?dl=1", save_as ="resources/data/Dataset.zip")
 Unzip_Dataset()
 Data_Cleaning()
-# cleanUpDataset('project/resources/data/Dataset_Collection/movies_metadata.csv', 'project/resources/data/Dataset_Collection/recommender.csv')
-cleanUpDataset('resources/data/Dataset_Collection/movies_metadata.csv', 'resources/data/Dataset_Collection/recommender.csv')
+cleanUpDataset('project/resources/data/Dataset_Collection/movies_metadata.csv', 'project/resources/data/Dataset_Collection/recommender.csv')
+# cleanUpDataset('resources/data/Dataset_Collection/movies_metadata.csv', 'resources/data/Dataset_Collection/recommender.csv')
 singleton_init()
-# create_recommender_database('project/resources/data/Dataset_Collection/recommender.csv',
-# 'project/resources/database/recommender.db', 'movies')
-create_recommender_database('resources/data/Dataset_Collection/recommender.csv',
-'resources/database/recommender.db', 'movies')
+
+create_recommender_database('project/resources/data/Dataset_Collection/recommender.csv',
+'project/resources/database/recommender.db', 'movies')
+# create_recommender_database('resources/data/Dataset_Collection/recommender.csv',
+# 'resources/database/recommender.db', 'movies')
+
 get_connection()
-time.sleep(2)
-time.sleep(1)
-os.system('cls')
+initialize_database()
 print('Opening application...')
 time.sleep(1)
-initialize_database()
+os.system('cls')
 MenuInit()
 
 
