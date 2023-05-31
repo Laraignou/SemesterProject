@@ -5,49 +5,69 @@ import time
 
 def Download_and_Install_Libraries():
 
+    print('Downloading packages if needed..')
     # implement pip as a subprocess:
     subprocess.check_call([sys.executable, '-m', 'pip', 'install',
     'numpy'])
     
-    subprocess.check_call([sys.executable, '-m', 'pip', 'install',
-    'seaborn'])
+    # subprocess.check_call([sys.executable, '-m', 'pip', 'install',
+    # 'tf-nightly'])
 
+    # subprocess.check_call([sys.executable, '-m', 'pip', 'install',
+    # 'seaborn'])
+
+    subprocess.check_call([sys.executable, '-m', 'pip', 'install',
+    'opencv-python'])
+
+    subprocess.check_call([sys.executable, '-m', 'pip', 'install',
+    'matplotlib'])
+    
     subprocess.check_call([sys.executable, '-m', 'pip', 'install',
     'pandas'])
     
     subprocess.check_call([sys.executable, '-m', 'pip', 'install',
+    'tqdm'])
+    
+    subprocess.check_call([sys.executable, '-m', 'pip', 'install',
     'console-menu'])
 
+    subprocess.check_call([sys.executable, '-m', 'pip', 'install',
+    'scikit-learn'])
+
     # process output with an API in the subprocess module:c
+
     reqs = subprocess.check_output([sys.executable, '-m', 'pip',
     'freeze'])
     installed_packages = [r.decode().split('==')[0] for r in reqs.split()]
 
     print(installed_packages)
-    time.sleep(1)
     os.system('cls')
     time.sleep(1)
     print('File(s) executed succesfully')
-    
 
-Download_and_Install_Libraries()
+    #!/usr/bin/python
+
+def make_directories():
+# Path to be created
+    
+    path_resources = "resources"
+    if not os.path.exists(path_resources):
+        os.mkdir(path_resources)
+
+    path_data = "resources/data"
+    if not os.path.exists(path_data):
+        os.mkdir(path_data)
+
+    path_database = "resources/database"
+    if not os.path.exists(path_database):
+        os.mkdir(path_database)
+
+    path_figures = "resources/figures"
+    if not os.path.exists(path_figures):
+        os.mkdir(path_figures)
+
+    print("Path is created..")
+
 # print(sys.path)
 
 
-import main
-
-time.sleep(3)
-os.system('cls')
-print('Opening application...')
-time.sleep(3)
-
-main.mainInit()
-
-# def run(runfile):
-#   with open(runfile,"r") as rnf:
-#     exec((rnf.read()))
-# # run('Project/main.py')
-
-
-# with open("Project/main.py") as f:
-#     exec(f.read())

@@ -2,22 +2,22 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 from ast import literal_eval
-import zipfile
-
-def Unzip_Dataset():
-        
-        with zipfile.ZipFile('Project/Resources/Dataset/Dataset_Collection.zip', 'r') as zip_ref:
-                zip_ref.extractall('Project/Resources/Dataset/')
-
-Unzip_Dataset()
+import time
 
 def Data_Cleaning():
 
-    df = pd.read_csv('Project/Resources/Dataset/Dataset_Collection/movies_metadata.csv', low_memory=False)
+    # df = pd.read_csv('Project/Resources/Data/Dataset_Collection/movies_metadata.csv', low_memory=False)
+    df = pd.read_csv('Resources/Data/Dataset_Collection/movies_metadata.csv', low_memory=False)
+    
     # print(df.isnull())
     # print(df.isnull().sum())
-    # print(df.shape)
-    # df.info()
+    
+    
+    print('ROWS AND COLUMNS', df.shape)
+    df.info()
+    print('')
+    print('')
+    input("press ENTER to show info about DATA after cleaning process..")
     # print(df.head(10))
     
     duplicated_data = df[df.duplicated()]
@@ -27,7 +27,8 @@ def Data_Cleaning():
     df = df.drop_duplicates(keep='first') # removes the duplicates from existing dataframe
     df.dropna(how="all",inplace=True) # if each column is NaN or null in a row, drops this row
 
-    # print(df.shape)
+    print(df.shape)
+    # input('press enter to continue..')
     
     count_missing_title_in_rows = df['title'].isna().sum()
     # print(count_missing_title_in_rows)
@@ -47,7 +48,10 @@ def Data_Cleaning():
     # print(df["adult"].value_counts())
     df.drop(["adult"], inplace=True, axis=1)
     
-    # df.info()
+    df.info()
+    print('')
+    input('press ENTER to continue..')
+    print('Creating plots..')
 
     df["status"].fillna(df["status"].value_counts().idxmax(), inplace=True)
     df["runtime"] = df["runtime"].replace(0, np.nan)
@@ -149,14 +153,16 @@ def Data_Cleaning():
     genres_occur = list_counter(df["genres"].values, log=False)
     genres = pd.DataFrame.from_records(genres_occur, columns=["genres", "count"])
     genres.plot(kind = 'bar', x="genres", title='Genre')
-    plt.savefig('Project/Resources/Figures/plot_figure_1.png')
-    
+    # plt.savefig('Project/Resources/Figures/plot_by_genre.png')
+    plt.savefig('Resources/Figures/plot_by_genre.png')
+
     countries_occur = list_counter(df["production_countries"].values, log=False)
     countries = pd.DataFrame.from_records(countries_occur, columns=["countries", "count"])
     countries.head(20).plot(kind = 'bar', x="countries", title='Countries')
-    plt.savefig('Project/Resources/Figures/plot_figure_2.png')
+    # plt.savefig('project/Resources/Figures/plot_by_country.png')
+    plt.savefig('Resources/Figures/plot_by_country.png')
     
-Data_Cleaning()
+# Data_Cleaning()
 
 
     # df.info()

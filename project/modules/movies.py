@@ -1,9 +1,13 @@
-
+from modules.recommender import get_recommendations_by_title
+from modules.singleton import get_database_connection
 
 def Search():
     print('Enter movie title: ')
-    input("")
-
+    text = input("")
+    print("Loading movies...")
+    print(get_recommendations_by_title(text, None, "movies"))
+    input("Press any key to continue...")
+    
 def Show_Top10_Global_By_Title():
     print('test')
     
