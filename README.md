@@ -24,7 +24,7 @@
 
 
 # Prerequisites:
-* Python 3.1x
+* Python 3.1.x
 * Command Prompt (CMD)
 
 # Installation guide (if any libraries need to be installed):
