@@ -30,7 +30,7 @@
 # Installation guide (if any libraries need to be installed):
     From CMD run "python main.py" (from SemesterProject/Project/main.py)
 
-User guide (how to run the program)
+# User guide (how to run the program)
     As above
 
 # Status (What has been done (and if anything: what was not done))
