@@ -14,18 +14,29 @@ Short description
 
 List of used technologies
     Python Libraies:
-    
+        matplotlib
+        numpy
+        tf-nightly
+        seaborn
+        pandas
+        tqdm
+        console-menu
+        scikit-learn
+        opencv-python
 
-Installation guide (if any libraries need to be installed)
-    
-    "Install_Libraries.py" will install required libraries (if needed)
+
+Prerequisites:
+Python 3.1x
+Command Prompt (CMD)
+
+Installation guide (if any libraries need to be installed):
+    From CMD run "python main.py" (from SemesterProject/Project/main.py)
 
 User guide (how to run the program)
-    If you have done the above you are now ready to run "Application.py"
-    - Otherwise install following packages manually: Matplotlib, Numpy, Pandas, 
+    As above
 
 Status (What has been done (and if anything: what was not done))
-    To be continued..
+    
 
 List of Challenges you have set up for your self (The things in your project you want to highlight)
     GUI - How to virtualize
