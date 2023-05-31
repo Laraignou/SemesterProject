@@ -37,6 +37,31 @@ def Download_and_Install_Libraries():
     os.system('cls')
     time.sleep(1)
     print('File(s) executed succesfully')
+
+    #!/usr/bin/python
+
+
+
+def make_directories():
+# Path to be created
+    # path_resources = "project/resources"
+    # path_data = "project/resources/data"
+    # path_database = "project/resources/database"
+    # path_figures = "project/resources/figures"
+
+    path_resources = "resources"
+    path_data = "resources/data"
+    path_database = "resources/database"
+    path_figures = "resources/figures"
+
+    os.mkdir(path_resources)
+    os.mkdir(path_data)
+    os.mkdir(path_database)
+    os.mkdir(path_figures)
+
+    print("Path is created..")
+
+
     
 # print(sys.path)
 

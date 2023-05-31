@@ -15,12 +15,12 @@ def create_recommender_database(dataset, database, table_name):
 def get_connection():
     return singleton.recommender_connection
 
-def initialize_database():
-    create_recommender_database('project/resources/data/Dataset_Collection/recommender.csv',
-    'project/resources/database/recommender.db', 'movies')
-    get_connection()
-
 # def initialize_database():
-#     create_recommender_database('resources/data/Dataset_Collection/recommender.csv',
-# 'resources/database/recommender.db', 'movies')
-#     print("Created recommender database.")
+#     create_recommender_database('project/resources/data/Dataset_Collection/recommender.csv',
+#     'project/resources/database/recommender.db', 'movies')
+#     get_connection()
+
+def initialize_database():
+    create_recommender_database('resources/data/Dataset_Collection/recommender.csv',
+'resources/database/recommender.db', 'movies')
+    print("Created recommender database.")

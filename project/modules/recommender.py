@@ -49,8 +49,8 @@ def generate_indicies(df, title):
 # Function that takes in movie title as input and outputs most similar movies
 def get_recommendations_by_title(title, database_connection, tableName):
     
-    df = pd.read_csv('project/resources/data/Dataset_Collection/recommender.csv', low_memory=False)
-    # df = pd.read_csv('resources/data/Dataset_Collection/recommender.csv', low_memory=False) 
+    # df = pd.read_csv('project/resources/data/Dataset_Collection/recommender.csv', low_memory=False)
+    df = pd.read_csv('resources/data/Dataset_Collection/recommender.csv', low_memory=False) 
     #df = pd.read_sql_query("SELECT * FROM " + tableName + " LIMIT 1000", database_connection)
 
     df2 = df.copy()
