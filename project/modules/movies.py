@@ -5,7 +5,8 @@ def Search():
     print('Enter movie title: ')
     text = input("")
     print("Loading movies...")
-    print(get_recommendations_by_title(text, get_database_connection(), "movies"))
+    print(get_recommendations_by_title(text, None, "movies"))
+    input("Press any key to continue...")
     
 def Show_Top10_Global_By_Title():
     print('test')
