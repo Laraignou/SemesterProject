@@ -34,6 +34,15 @@ def first_run():
         MenuInit()
 
     elif user_input.lower() == 'n':
+        print('starting application...')
+        cleanUpDataset('project/resources/data/Dataset_Collection/movies_metadata.csv', 'project/resources/data/Dataset_Collection/recommender.csv')
+        singleton_init()
+        create_recommender_database('project/resources/data/Dataset_Collection/recommender.csv',
+        'project/resources/database/recommender.db', 'movies')
+        # create_recommender_database('resources/data/Dataset_Collection/recommender.csv',
+        # 'resources/database/recommender.db', 'movies')
+        get_connection()
+        initialize_database()
         print('Opening application...')
         time.sleep(1)
         os.system('cls')
