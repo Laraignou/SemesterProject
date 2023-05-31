@@ -49,15 +49,23 @@ def make_directories():
     # path_database = "project/resources/database"
     # path_figures = "project/resources/figures"
 
+    
     path_resources = "resources"
-    path_data = "resources/data"
-    path_database = "resources/database"
-    path_figures = "resources/figures"
+    if not os.path.exists(path_resources):
+        os.mkdir(path_resources)
 
-    os.mkdir(path_resources)
-    os.mkdir(path_data)
-    os.mkdir(path_database)
-    os.mkdir(path_figures)
+    path_data = "resources/data"
+    if not os.path.exists(path_data):
+        os.mkdir(path_data)
+
+    path_database = "resources/database"
+    if not os.path.exists(path_database):
+        os.mkdir(path_database)
+
+    path_figures = "resources/figures"
+    if not os.path.exists(path_figures):
+        os.mkdir(path_figures)
+
 
     print("Path is created..")
 
